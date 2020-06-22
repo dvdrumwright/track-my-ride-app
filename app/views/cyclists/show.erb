@@ -1,0 +1,31 @@
+<h3>Cyclist Histories</h3><br>
+<h4><%= @user.username %></h4><br><hr>
+
+<% @user.rides.each do |r| %>
+<a href="/rides/<%=r.id%>"><li><%= r.ride_distance%></li></a>
+
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-sm">
+                <p>Distance (miles)</p>
+                <h5><%= r.ride_distance %></h5>
+            </div>
+
+        </div><br>
+        <div class="row">
+            <div class="col-8">
+                <p>description: <%= r.description%></p>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" >
+                <a href="/rides/<%=r.id%>/edit">Update</a>
+            </button>
+            <form action="/rides/<%=r.id%>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </div><hr><br>
+    <% end %>

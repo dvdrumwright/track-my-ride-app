@@ -1,0 +1,8 @@
+<div class="col-sm-12 text-left">
+<h3>Cyclists</h3>
+<ul>
+<% @cyclist.each do |user| %>
+    <a href="/cyclists/<%=user.id%>"><li><%= user.username %></li></a>
+<% end %>
+</ul>
+</div>

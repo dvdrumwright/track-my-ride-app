@@ -1,0 +1,9 @@
+<h1>Cycling History </h1>
+
+<ul>
+  <% @rides.each do |r| %>
+  <%= erb :'rides/_ride', locals: {user: r.user, r: r} %>
+<% end %>
+
+
+<p><a href="/rides/new">record a new ride</a></p>

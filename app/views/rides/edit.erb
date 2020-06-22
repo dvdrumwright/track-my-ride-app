@@ -1,0 +1,12 @@
+<% if !!@error_message %>
+    <p class="danger"><%= @error_message %></p>
+<% end %>
+
+<form action="/rides/<%=@ride.id%>"  method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="description">description:</label><br>
+    <textarea name="description" id="description" cols="30" rows="10"><%=@ride.description%></textarea><br>
+    <label for="ride_distance">ride_distance:</label>
+    <input type="text" name="ride_distance" id="ride_distance" value="<%=@ride.ride_distance%>"><br>
+    <input type="submit" value="Edit">
+</form>

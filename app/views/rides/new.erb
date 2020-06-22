@@ -1,0 +1,23 @@
+<% if !!@error_message %>
+    <p class="danger"><%= @error_message %></p>
+<% end %>
+
+
+
+<h3> Ride information </h3>
+
+<form action="/rides" method="POST">
+
+<label for="description">Description:</label>
+<textarea name="description" id="description" cols="30" rows="10"></textarea><br>
+
+<label for="ride_distance">Ride Distance (miles):</label>
+<input type="number" name="ride_distance" id="ride_distance" placeholder="How long is this ride? " required> <br>
+
+
+
+ <input type="submit" value="Add">
+
+</form>
+
+<br>
