@@ -40,7 +40,7 @@ helpers do
     end
 
     def current_user
-     user = Cyclist.find_by(id: session[:user_id]) if session[:user_id]
+     @user = Cyclist.find_by(id: session[:user_id]) if session[:user_id]
     end
 
     def authenticate(username, password)
@@ -52,17 +52,6 @@ helpers do
      def authorize
          current_user
      end
-
-     def own_run?(ride)
-           current_user == ride.user
-       end
-
-       def login_error_messages(errors)
-          if errors
-              erb :'Cyclists/_errors', locals: {errors: errors}
-          end
-      end
-
 
   end
 end

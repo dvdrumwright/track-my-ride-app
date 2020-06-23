@@ -53,8 +53,8 @@ class CyclistsController < ApplicationController
    end
 
    post '/login' do
-     user = Cyclist.find_by(:username => params[:username])
-     if user && user.authenticate(params[:password])
+     @user = Cyclist.find_by(:username => params[:username])
+     if @user && @user.authenticate(params[:password])
        session[:user_id] = user.id
        redirect to '/home'
      else

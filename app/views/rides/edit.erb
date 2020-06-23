@@ -1,6 +1,3 @@
-<% if !!@error_message %>
-    <p class="danger"><%= @error_message %></p>
-<% end %>
 
 <form action="/rides/<%=@ride.id%>"  method="post">
     <input type="hidden" name="_method" value="patch">

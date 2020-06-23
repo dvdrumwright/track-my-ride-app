@@ -1,5 +1,24 @@
-<h3>cycling History</h3>
+<% @rides.each do |p|%>
 
-<% @rides.each do |ride| %>
-    <%= erb :'rides/_ride', locals: {user: ride.user, ride: ride} %>
-<% end %>
+<div class='project_card'>
+    <h4><a class='project_name' href='/rides/<%=p.id%>'><%=p.description%></a></h4>
+    <br>
+    <img class='project_img' src='<%=p.image_url%>' alt='knitted <%=p.name%>' height="125" width="125">
+    <br>
+    <br>
+    <div class='project_info'>
+    <p>ride note: <%=p.description%></p>
+    <p>distance(miles): <%=p.ride_distance%></p>
+    </div>
+    <small>Created by: <%=p.user.username%></small>
+        <%if current_user.rides.include?(p)%>
+         <form method="post" action="/rides/<%=p.id%>/delete">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Project">
+        </form>
+        <form method="get" action="/rides/<%=p.id%>/edit">
+            <input type="submit" value="Edit Project">
+        </form>
+        <%end%>
+    </div>
+<%end%>

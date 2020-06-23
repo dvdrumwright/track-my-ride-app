@@ -1,0 +1,24 @@
+
+
+
+
+
+<div class='project_card'>
+<h3 class='project_name'><%=@ride.description%></h3>
+<br>
+<div class='project_info'>
+<p>description: <%=@ride.description%></p>
+<p>distance(miles): <%=@ride.ride_distance%></p>
+</div>
+<small>Created by: <%=@ride.cyclist_id%></small>
+ <% if current_user.rides.include?(@ride) %>
+         <form method="post" action="/rides/<%=@ride.id%>/delete">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Project">
+        </form>
+
+        <form method="get" action="/rides/<%=@ride.id%>/edit">
+            <input type="submit" value="Edit Project">
+        </form>
+<%end%>
+</div>
