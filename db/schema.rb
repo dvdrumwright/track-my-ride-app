@@ -11,23 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200622193617) do
+ActiveRecord::Schema.define(version: 20200629010412) do
 
-  create_table "cyclists", force: :cascade do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
+  create_table "rides", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "distance"
+    t.integer  "time"
+    t.string   "mood"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "rides", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "ride_distance"
-    t.integer  "ride_date"
-    t.integer  "cyclist_id"
-    t.integer  "ride_id"
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "username"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
