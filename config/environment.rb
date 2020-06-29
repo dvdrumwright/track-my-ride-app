@@ -1,6 +1,7 @@
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'
+require 'capybara/dsl'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
@@ -8,12 +9,6 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-
-
-require_relative '../constants'
-require_relative '../errors/post_site_error'
-
-
-require_all 'errors'
 require './app/controllers/application_controller'
 require_all 'app'
+require_all 'lib'

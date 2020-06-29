@@ -14,9 +14,8 @@ class RidesController < ApplicationController
     post '/rides' do
         authorize
         u = current_user
-        u.rides.build(distance: params[:distance], time: params[:time], mood: params[:mood])
-        raise PostSiteError.new if !u.save
-        # redirect '/users/#{u.id}'
+        u.rides.create(distance: params[:distance], time: params[:time], mood: params[:mood])
+        u.save
         redirect '/rides'
     end
 
