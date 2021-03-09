@@ -1,5 +1,5 @@
 <h3>Cycling History</h3>
 
-<% @rides.each do |run| %>
-    <%= erb :'rides/ride', locals: {user: run.user, run: run} %>
+<% @rides.each do |ride| %>
+    <%= erb :'rides/ride', locals: {user: ride.user, ride: ride} %>
 <% end %>
