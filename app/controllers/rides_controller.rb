@@ -12,7 +12,6 @@ class RidesController < ApplicationController
     end
 
     post '/rides' do
-        authorize
         u = current_user
         u.rides.create(distance: params[:distance], time: params[:time], mood: params[:mood])
         u.save
