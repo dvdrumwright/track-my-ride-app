@@ -2,7 +2,7 @@
     <p class="danger"><%= @error_message %></p>
 <% end %>
 
-<form action="/rides/<%=@ride.id%>" method="post">
+<form action="/rides/<%=@ride.id%>/edit" method="post">
     <input type="hidden" name="_method" value="patch">
     <label for="distance">Distance (miles):</label>
     <input type="text" name="distance" id="distance" value="<%=@ride.distance%>"><br>
